@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-29#9(2c&3dwb-!leqkkprsajp*(rt5qjd7#8d4kn-^gl6u3ktj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://8000-fridaexp-playground-5h02il9r2wh.ws-us46.gitpod.io']
 
 
 # Application definition
@@ -80,7 +81,7 @@ DATABASES = {
         'NAME': os.environ.get('POSTGRES_NAME'),
         'USER': os.environ.get('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': 'db',
+        'HOST': os.environ.get('DB_HOST', 'db'),
         'PORT': 5432,
     }
 }
